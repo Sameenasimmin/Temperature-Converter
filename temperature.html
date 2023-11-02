@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature  Conversion</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .btn-primary {
+            background-color: #007BFF;
+            border-color: #007BFF;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+	 body {
+        background-color: #f8f9fa;
+        background-image: url('https://thumbs.dreamstime.com/b/temperature-meter-thermometer-line-glyph-solid-icon-blue-banner-148443147.jpg'); /* Update the image path */
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    h1 {
+        color: #007BFF;
+    }
+
+    .btn-primary {
+        background-color: #007BFF;
+        border-color: #007BFF;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    #result {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    </style>
+
+</head>
+<body >
+    <div class="container mt-5">
+        <h1 class="text-center">Temperature Conversion</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inputDegree">Enter Degree Value:</label>
+                    <input type="number" class="form-control" id="inputDegree" placeholder="Enter degree value">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="selectDegreeType">Choose Degree Type:</label>
+                    <select class="form-control" id="selectDegreeType">
+                        <option value="celsius">Celsius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" id="convertButton">Convert</button>
+        <p id="result" class="text-center"></p>
+    </div>
+
+    <!-- Add Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to convert degrees
+        function convertDegrees() {
+            const inputDegree = parseFloat(document.getElementById("inputDegree").value);
+            const selectDegreeType = document.getElementById("selectDegreeType").value;
+            let result = 0;
+
+            if (selectDegreeType === "celsius") {
+                result = (inputDegree - 32) * 5/9;
+            } else if (selectDegreeType === "fahrenheit") {
+                result = (inputDegree * 9/5) + 32;
+            }
+
+            document.getElementById("result").innerText = `Result: ${result} ${selectDegreeType}`;
+        }
+
+        document.getElementById("convertButton").addEventListener("click", convertDegrees);
+    </script>
+</body>
+</html>
